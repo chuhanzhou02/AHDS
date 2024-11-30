@@ -1,15 +1,9 @@
-
-
 rule all:
     input:
          "raw/pmids.xml",
 	 "clean/articles.tsv",
 	 "clean/article_clean.tsv",
-         "plots/Thematic_Word_Frequency_Trends_2019-2026.png",
-         "plots/Word_Frequency_Trends_2019-2026.png"
-
-
-
+         "plot/Top_15_Keywords_Trends.png"
 
 rule download_data:
     output:
@@ -43,8 +37,7 @@ rule plot:
     input:
           "clean/article_clean.tsv"
     output:
-         "plots/Thematic_Word_Frequency_Trends_2019-2026.png",
-         "plots/Word_Frequency_Trends_2019-2026.png"
+         "plot/Top_15_Keywords_Trends.png"
     shell:
         """
         Rscript scripts/plot_data.R
@@ -59,10 +52,10 @@ rule clean:
     else
       echo directory raw does not exist
     fi
-    if [ -d plots ]; then
-      rm -r plots
+    if [ -d plot ]; then
+      rm -r plot
     else
-      echo directory plots does not exist
+      echo directory plot does not exist
     fi
     if [ -d clean ]; then
       rm -r clean
