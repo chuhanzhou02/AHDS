@@ -23,7 +23,7 @@ This project automates the process of fetching, cleaning, and analyzing research
    conda activate work-env
    ```
 
-##Running the Pipeline
+## Running the Pipeline
 To run the entire pipeline, use the provided `Snakefile` which orchestrates the execution of scripts in the correct order:
 
 ```
@@ -56,10 +56,10 @@ Alternatively, individual components can be run as follows:
 3. **Data Visualisation:**
    - Word Frequency Analysis:
      ```
-     snakemake word_frequency
+     snakemake plot
      ```
   
-4. **Clean Data**
+4. **Clean Data：**
    - Remove data and plots directories:
      ```
      snakemake clean
